@@ -10,16 +10,16 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "CalendarApp", user_path(current_user.id), class: "navbar-brand" %>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="navbar-header">
+        <%= link_to "CalendarApp", user_path(current_user.id), class: "navbar-brand" %>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "マイページ", user_path(current_user.id) %></li>
         <li><%= link_to "メンバーリスト", user_path(current_user.id) %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </div>
 </nav>
 

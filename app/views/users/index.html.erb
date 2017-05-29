@@ -1,0 +1,9 @@
+<h1 style="margin-bottom: 20px;"><span><%= current_user.group.key %></span> のメンバー</h1>
+<ul class="user-list">
+  <% @users.each do |user| %>
+    <li><span>・<%= user.name %>さん</span><%= link_to "カレンダーを見る", user_path(user.id), method: :get %></li>
+  <% end %>
+</ul>
+
+<h1 style="margin-top: 50px;"><span><%= current_user.group.key %></span> の共通カレンダー</h1>
+<div id="calendar"></div>

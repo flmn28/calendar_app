@@ -16,7 +16,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "マイページ", user_path(current_user.id), method: :get %></li>
-        <li><%= link_to "メンバーリスト", user_path(current_user.id) %></li>
+        <li><%= link_to "グループページ", users_path, method: :get %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% end %>

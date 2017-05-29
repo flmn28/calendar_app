@@ -8,4 +8,8 @@ class UsersController < ApplicationController
     redirect_to "/users/#{current_user.id}"
   end
 
+  def index
+    @users = User.where(group_id: current_user.group_id)
+  end
+
 end

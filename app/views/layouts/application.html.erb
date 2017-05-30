@@ -19,7 +19,19 @@
         <li><%= link_to "グループページ", users_path, method: :get %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       </ul>
+    <% else %>
+      <div class="navbar-header">
+        <span class="navbar-brand">CalendarApp</span>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if controller_name != 'sessions' %>
+          <li><%= link_to "ログイン", new_session_path(resource_name) %></li>
+        <% else %>
+          <li><%= link_to "アカウント登録", new_registration_path(resource_name) %></li>
+        <% end %>
+      </ul>
     <% end %>
+
   </div>
 </nav>
 

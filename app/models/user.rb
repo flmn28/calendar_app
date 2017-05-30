@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   attr_accessor :group_key
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :recoverable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :rememberable, :trackable, :validatable,
          authentication_keys: [:email, :group_key]
 
   #association

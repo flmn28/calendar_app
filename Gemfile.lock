@@ -69,6 +69,9 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.11)
+    devise-i18n (1.1.2)
+    devise-i18n-views (0.3.7)
     erubis (2.7.0)
     execjs (2.7.0)
     fullcalendar-rails (3.2.0.0)
@@ -200,6 +203,9 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  devise-bootstrap-views
+  devise-i18n
+  devise-i18n-views
   fullcalendar-rails
   jbuilder (~> 2.0)
   jquery-rails

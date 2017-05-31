@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :common_edit, :common_update]
 
   # GET /events
   # GET /events.json
@@ -17,8 +17,15 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def common_new
+    @event = Event.new
+  end
+
   # GET /events/1/edit
   def edit
+  end
+
+  def common_edit
   end
 
   # POST /events
@@ -37,11 +44,37 @@ class EventsController < ApplicationController
     end
   end
 
+  def common_create
+    @event = Event.new(common_event_params)
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
+        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.json { render :show, status: :ok, location: @event }
+      else
+        format.html { render :edit }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def common_update
+    respond_to do |format|
+      if @event.update(common_event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -70,5 +103,9 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :start, :end, :allDay).merge(color: "#94DBFC", user_id: current_user.id, group_id: current_user.group_id, common: false)
+    end
+
+    def common_event_params
+      params.require(:event).permit(:title, :start, :end, :allDay).merge(color: "#77E16E", user_id: current_user.id, group_id: current_user.group_id, common: true)
     end
 end

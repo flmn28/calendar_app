@@ -1,0 +1,37 @@
+<h1>New Common Event</h1>
+
+<%= form_tag("/common_events", method: :post) do %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label :event, :title %><br>
+    <%= text_field :event, :title %>
+  </div>
+  <div class="field">
+    <%= label :event, :start %><br>
+    <%= datetime_select :event, :start %>
+  </div>
+  <div class="field">
+    <%= label :event, :end %><br>
+    <%= datetime_select :event, :end %>
+  </div>
+  <div class="field">
+    <%= label :event, :allDay %><br>
+    <%= check_box :event, :allDay %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', events_path %>

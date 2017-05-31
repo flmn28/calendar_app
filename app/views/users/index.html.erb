@@ -6,6 +6,9 @@
 </ul>
 
 <h1 style="margin-top: 50px;"><span><%= current_user.group.key %></span> の共通カレンダー</h1>
+
+<p><%= link_to "共通の予定を追加する", common_events_new_path, method: :get %></p>
+
 <div id="calendar"></div>
 
 <script>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @events = Event.all.map{|e|
+    @events = Event.where(["user_id = ? and common = ?", @user.id, false]).or(Event.where(["group_id = ? and common = ?", @user.group_id, true])).map{|e|
     {
     :id => e.id,
     :title => e.title,
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where(group_id: current_user.group_id)
-    @events = Event.all.map{|e|
+    @events = Event.where(["group_id = ? and common = ?", current_user.group_id, true]).map{|e|
     {
     :id => e.id,
     :title => e.title,

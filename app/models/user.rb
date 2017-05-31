@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   #association
   belongs_to :group
+  has_many :events
 
   #validation
   before_validation :group_key_to_id, if: :has_group_key?

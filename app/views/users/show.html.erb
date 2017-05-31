@@ -1,8 +1,23 @@
 <h1><span><%= @user.name %></span> さんのカレンダー</h1>
 
+<% if user_signed_in? && @user.id == current_user.id %>
+  <p><%= link_to "予定を追加する", new_event_path, method: :get %></p>
+<% end %>
+
 <div id="calendar"></div>
 
 <script>
+
   $('#calendar').fullCalendar({
-  })
+    header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+    events: '/users.json',
+    navLinks: true,
+    ignoreTimezone: false,
+    editable: true,
+    eventLimit: true,
+  });
 </script>

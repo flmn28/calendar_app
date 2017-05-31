@@ -8,14 +8,17 @@
 
 <script>
 
-  $('#calendar').fullCalendar({
-    header: {
-			left: 'prev,next today',
-			center: 'title',
-			right: 'month,agendaWeek,agendaDay'
-		},
-    events: "/users/<%= @user.id %>.json",
-    ignoreTimezone: false,
-    eventLimit: true,
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      events: "/users/<%= @user.id %>.json",
+      ignoreTimezone: false,
+      eventLimit: true,
+    });
   });
+
 </script>

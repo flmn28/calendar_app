@@ -27,7 +27,8 @@
 
 <% if @event.common == true %>
   <%= link_to '編集する', "/common_events/#{@event.id}/edit" %> |
+  <%= link_to '削除する', "/events/#{@event.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>
 <% elsif user_signed_in? && @event.user_id == current_user.id %>
   <%= link_to '編集する', edit_event_path(@event) %> |
+  <%= link_to '削除する', "/events/#{@event.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>
 <% end %>
-<%= link_to '削除する', "/events/#{@event.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>

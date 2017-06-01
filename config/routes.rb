@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events, except: :index
   get "/common_events/new" => "events#common_new"
   post "/common_events" => "events#common_create"
   get "/common_events/:id/edit" => "events#common_edit"

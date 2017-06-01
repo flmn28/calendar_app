@@ -1,4 +1,4 @@
-<h1>New Common Event</h1>
+<h1 class="event-form-title">グループの予定を追加する</h1>
 
 <%= form_tag("/common_events", method: :post) do %>
   <% if @event.errors.any? %>
@@ -13,25 +13,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= label :event, :title %><br>
-    <%= text_field :event, :title %>
+  <div class="field form-group">
+    <%= label :event, :タイトル %><br>
+    <%= text_field :event, :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= label :event, :start %><br>
-    <%= datetime_select :event, :start %>
+  <div class="field form-group">
+    <%= label :event, :開始日時 %><br>
+    <%= datetime_select :event, :start, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= label :event, :end %><br>
-    <%= datetime_select :event, :end %>
+  <div class="field form-group">
+    <%= label :event, :終了日時 %><br>
+    <%= datetime_select :event, :end, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= label :event, :allDay %><br>
+  <div class="field form-group">
+    <%= label :event, :終日 %><br>
     <%= check_box :event, :allDay %>
   </div>
-  <div class="actions">
-    <%= submit_tag %>
+  <div class="actions form-group">
+    <%= submit_tag "予定を保存する", class:"btn btn-default" %>
   </div>
 <% end %>
 
-<%= link_to 'Back', events_path %>
+<%= link_to 'グループページに戻る', users_path, method: :get %>

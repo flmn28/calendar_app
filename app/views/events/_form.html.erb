@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="field form-group">
+    <%= f.label :タイトル %><br>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
+  <div class="field form-group">
+    <%= f.label :開始日時 %><br>
+    <%= f.datetime_select :start, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
+  <div class="field form-group">
+    <%= f.label :終了日時 %><br>
+    <%= f.datetime_select :end, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :allDay %><br>
+  <div class="field form-group">
+    <%= f.label :終日 %><br>
     <%= f.check_box :allDay %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit "予定を保存する", class:"btn btn-default" %>
   </div>
 <% end %>

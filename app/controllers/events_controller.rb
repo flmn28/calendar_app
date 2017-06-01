@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to "/users/#{current_user.id}" }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to "/users" }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -102,10 +102,10 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start, :end, :allDay).merge(color: "#94DBFC", user_id: current_user.id, group_id: current_user.group_id, common: false)
+      params.require(:event).permit(:title, :start, :end, :allDay).merge(color: "#5bb9f8", user_id: current_user.id, group_id: current_user.group_id, common: false)
     end
 
     def common_event_params
-      params.require(:event).permit(:title, :start, :end, :allDay).merge(color: "#77E16E", user_id: current_user.id, group_id: current_user.group_id, common: true)
+      params.require(:event).permit(:title, :start, :end, :allDay).merge(color: "#7edf77", user_id: current_user.id, group_id: current_user.group_id, common: true)
     end
 end

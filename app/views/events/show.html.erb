@@ -1,28 +1,33 @@
-<p id="notice"><%= notice %></p>
+<h1 style="font-size: 18px;">予定の詳細</h1>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @event.title %>
 </p>
 
-<p>
-  <strong>Start:</strong>
-  <%= @event.start %>
-</p>
+<% if @event.allDay == false %>
+  <p>
+    <strong>開始時間:</strong>
+    <%= @event.start %>
+  </p>
 
-<p>
-  <strong>End:</strong>
-  <%= @event.end %>
-</p>
+  <p>
+    <strong>終了時間:</strong>
+    <%= @event.end %>
+  </p>
 
-<p>
-  <strong>Allday:</strong>
-  <%= @event.allDay %>
-</p>
+<% else %>
+
+  <p>
+    <strong>終日:</strong>
+    ○
+  </p>
+
+<% end %>
 
 <% if @event.common == true %>
-  <%= link_to 'Edit', "/common_events/#{@event.id}/edit" %> |
+  <%= link_to '編集する', "/common_events/#{@event.id}/edit" %> |
 <% elsif user_signed_in? && @event.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to '編集する', edit_event_path(@event) %> |
 <% end %>
-<%= link_to 'Back', events_path %>
+<%= link_to '削除する', "/events/#{@event.id}", method: :delete, data: { confirm: '本当に削除しますか?' } %>

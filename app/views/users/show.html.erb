@@ -1,7 +1,7 @@
 <h1><span><%= @user.name %></span> さんのカレンダー</h1>
 
 <% if user_signed_in? && @user.id == current_user.id %>
-  <p><%= link_to "予定を追加する", new_event_path, method: :get %></p>
+  <p><%= link_to "予定を追加する", new_event_path, method: :get, class:"btn btn-default btn-add-event" %></p>
 <% end %>
 
 <div id="calendar"></div>
@@ -18,6 +18,17 @@
       events: "/users/<%= @user.id %>.json",
       ignoreTimezone: false,
       eventLimit: true,
+      timeFormat: 'H(:mm)',
+      buttonText: {
+          today:    '今日',
+          month:    '月',
+          week:     '週',
+          day:      '日'
+      },
+      monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+      monthNamesShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+      dayNames: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+      dayNamesShort: ['日', '月', '火', '水', '木', '金', '土']
     });
   });
 

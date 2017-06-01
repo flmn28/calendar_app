@@ -20,6 +20,10 @@ body {
   padding-top: 60px;
 }
 
+.container {
+  max-width: 940px;
+}
+
 .navbar-inverse .navbar-brand {
   font-size: 22px;
   font-weight: bold;
@@ -32,4 +36,55 @@ body {
 
 .navbar-nav li:hover {
 background-color: #000;
+}
+
+.dropdown-menu {
+  background-color: #333;
+  color: #ddd;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+
+#calendar {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+#calendar a {
+  color: #333;
+}
+
+#calendar a:visited {
+  color: #333;
+}
+
+#calendar a:hover {
+  color: #fff;
+}
+
+.fc-sat {
+  color: blue;
+}
+
+.fc-sun {
+  color: red;
+}
+
+.btn-default {
+  color: #ddd;
+  background-color: #333;
+  margin-bottom: 10px;
+}
+
+.btn-default:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+form {
+  max-width: 640px;
 }
